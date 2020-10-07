@@ -40,16 +40,9 @@ sub_merge_cnv_omit$OS_STATUS <- as.numeric(as.character(sub_merge_cnv_omit$OS_ST
 sub_merge_cnv_omit$AKR1C3.y <- as.numeric(as.integer(sub_merge_cnv_omit$AKR1C3.y))
 
 
-## model ----- using complete
-relation <- lm(Complete$OS_MONTHS ~ Complete$AKR1C3.x)
-
-print(relation)
-
-
 # fit <- survfit(Surv(Days, status) ~ Tx, data = zr75_3b)
 
 Complete$AKR1C3 <- revalue(Complete$AKR1C3, c("C154F"="AMP"))
-Complete["1880", "AKR1C3"] <- AMP
 
 coxph(formula = Surv(OS_MONTHS, OS_STATUS) ~ AKR1C3.x, data = new)
 
@@ -59,4 +52,15 @@ colnames(AKR1C3)
 
 patient_id <- reg_sub$Patient.ID
 AKR1C3 <- reg_sub[c(2:3)]
+
+## plot 
+sfit <- survfit(Surv(OS_MONTHS, OS_STATUS)~AKR1C3_HL, data=subset)
+plot(sfit)
+ggsurvplot(sfit, data = subset)
+ggsurvplot(sfit, conf.int=TRUE, pval=TRUE, risk.table=TRUE, 
+           legend.labs=c("Negative", "positive"), legend.title="AKR1C3 expression",  
+           palette=c("dodgerblue2", "orchid2"), 
+           title="Overall survival for AKR1C3 espression (METABRIC Breast Cancer)", 
+           risk.table.height=.15, data = subset)
+
 
