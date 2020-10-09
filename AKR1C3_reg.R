@@ -1,9 +1,8 @@
-
-#
-
-library("survival")
-library("survminer")
-library("plyr")
+# Load libraries
+library(survival)
+library(survminer)
+library(plyr)
+library(tibble)
 library(forcats)
 
 # pull data from cbioportal
@@ -39,9 +38,12 @@ sub_merge_AKR1C3_OS$AKR1C3 <- fct_rev(sub_merge_AKR1C3_OS$AKR1C3)
 # cox model
 #hazard ratio - positive value indicated greater risk (opposite of linear model)
 aka_cox <- coxph(formula = Surv(OS_MONTHS, OS_STATUS) ~ AKR1C3, data = sub_merge_AKR1C3_OS)
+coxph(formula = Surv(OS_MONTHS, OS_STATUS) ~ AKR1C3, data = sub_merge_AKR1C3_OS)
+
 beta_coef_i_want <- coef(summary(aka_cox))[1]
 hazard_ratio_i_want <- coef(summary(aka_cox))[2]
 p_value_i_want <- coef(summary(aka_cox))[5]
+summary(aka_cox)
 #95% CI 1.58-6.50
 
 ## plot 
