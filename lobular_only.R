@@ -12,6 +12,7 @@ library(forcats)
 META <- read.delim(file = "meta/combined_study_clinical_data.tsv")# 0=living 1=deceased
 AKR1C3_MICROARRAY <- read.delim(file = "meta/mRNA expression z-Scores relative to all samples (log microarray).txt")
 OS <- read.delim(file = "KM_Plot__Overall_Survival_.txt")
+head(META)
 # Merge data by Patient.ID
 names(AKR1C3_MICROARRAY)[names(AKR1C3_MICROARRAY)=="SAMPLE_ID"] <- "Sample.ID"
 names(AKR1C3_MICROARRAY)[names(AKR1C3_MICROARRAY)=="STUDY_ID"] <- "Study.ID"
@@ -36,9 +37,11 @@ hist(subset[,2])
 str(subset)
 aka_cox_expression <- coxph(formula = Surv(OS_MONTHS, OS_STATUS) ~ AKR1C3, data = subset)
 coxph(formula = Surv(OS_MONTHS, OS_STATUS) ~ AKR1C3, data = subset)
+
 beta_coef_i_want <- coef(summary(aka_cox_expression))[1]
 hazard_ratio_i_want <- coef(summary(aka_cox_expression))[2]
 p_value_i_want <- coef(summary(aka_cox_expression))[5]
+
 summary(aka_cox_expression)
 #95% CI 1.01-1.70
 
