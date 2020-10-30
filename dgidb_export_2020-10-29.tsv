@@ -1,0 +1,17 @@
+search_term	match_term	match_type	gene	drug	interaction_types	sources	pmids
+FN1	FN1	Definite	FN1	OCRIPLASMIN	cleavage	DrugBank|ChemblInteractions|TTD	23193358
+FN1	FN1	Definite	FN1	ZINC CHLORIDE	ligand|modulator	DrugBank	23896426|20541508
+FN1	FN1	Definite	FN1	L19IL2	""	ChemblInteractions	""
+FN1	FN1	Definite	FN1	L19TNFA	""	ChemblInteractions	""
+FN1	FN1	Definite	FN1	L19SIP 131I	""	ChemblInteractions	""
+FN1	FN1	Definite	FN1	METHYLDOPA	""	DrugBank	23896426
+FN1	FN1	Definite	FN1	LANOTEPLASE	""	DrugBank	""
+ANGPT2	ANGPT2	Definite	ANGPT2	NESVACUMAB	inhibitor	TdgClinicalTrial|ChemblInteractions|TTD	""
+ANGPT2	ANGPT2	Definite	ANGPT2	TREBANANIB	inhibitor	ChemblInteractions	""
+ANGPT2	ANGPT2	Definite	ANGPT2	RIBAVIRIN	""	NCI	16104024
+ANGPT2	ANGPT2	Definite	ANGPT2	MEDI-3617	""	TTD	""
+CEACAM5	CEACAM5	Definite	CEACAM5	LABETUZUMAB	antibody|inhibitor	DrugBank|ChemblInteractions|GuideToPharmacology	19789330
+CEACAM5	CEACAM5	Definite	CEACAM5	CERGUTUZUMAB AMUNALEUKIN	""	TTD	""
+CEACAM5	CEACAM5	Definite	CEACAM5	GEFITINIB	""	NCI	15738541
+CEACAM5	CEACAM5	Definite	CEACAM5	GENISTEIN	""	NCI	9331108
+CEACAM5	CEACAM5	Definite	CEACAM5	SAR-408701	""	TTD	""
